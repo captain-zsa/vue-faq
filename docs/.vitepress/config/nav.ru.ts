@@ -2,10 +2,15 @@ export default [
   // { text: "Главная", link: "/ru/" },
   { text: "FAQ", link: "/ru/misc/introduction" },
   { text: "Учебник", link: "/ru/book/" },
-  { text: "vue-webapp", link: "/ru/vue-webapp/" },
-  { text: "Release Timeline", link: "/ru/release-timeline/" },
-  { text: "Arty-Crafty", link: "/ru/arty-crafty/" },
-  { text: "Статьи", link: "/ru/articles/" },
+  { text: "Argus", link: "https://startup-tools.ru/telegram-tools/argus?utm_source=vue-faq.org&utm_medium=link&utm_campaign=vue-faq-website" },
+  { text: "Проекты", items: [
+    { text: "vue-webapp", link: "/ru/vue-webapp/" },
+    { text: "Release Timeline", link: "/ru/release-timeline/" },
+    { text: "Arty-Crafty", link: "/ru/arty-crafty/" },
+    { text: "Argus", link: "https://startup-tools.ru/telegram-tools/argus" },
+    { text: "Noema", link: "https://startup-tools.ru/telegram-tools/noema" },
+    { text: "Статьи", link: "/ru/articles/" },
+  ] },
   {
     text: "v 1.4",
     items: [

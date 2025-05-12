@@ -12,6 +12,35 @@ const filePath = page.value.filePath;
 // console.log(useData());
 
 onMounted(() => {
+
+  // saveVisit(config);
+
+  changeNavbar();
+});
+
+function changeNavbar() {
+  const navItems = document.querySelectorAll('.VPNav .VPNavBarMenuLink');
+  
+  if (!navItems || navItems.length < 2) {
+    return;
+  }
+  const targetItem = navItems[2];
+  targetItem.style.color = 'var(--vp-c-green-1)';
+  if (Math.random() > 0.5) {
+        // Находим третий пункт меню в DOM (индекс 2)
+        
+        // Меняем содержимое пункта меню
+        const link = targetItem.getAttribute('href');
+        if (link && link !== 'https://startup-tools.ru/telegram-tools/noema?utm_source=vue-faq.org&utm_medium=link&utm_campaign=vue-faq-website') {
+            targetItem.setAttribute('href', 'https://startup-tools.ru/telegram-tools/noema?utm_source=vue-faq.org&utm_medium=link&utm_campaign=vue-faq-website');
+            targetItem.textContent = 'Noema';
+            // menuChanged.value = true
+            // console.log('Меню изменено через DOM')
+        }
+    }
+}
+
+async function saveVisit() {
   const searchParams = new URLSearchParams(window.location.search);
   if (searchParams.has("t")) {
     const tt = +searchParams.get("t") - 1;
@@ -44,10 +73,6 @@ onMounted(() => {
   }
   localStorage.setItem("vue-faq-config", JSON.stringify(config));
 
-  saveVisit(config);
-});
-
-async function saveVisit(config) {
   config.ip = "";
   try {
     const { ip } = await (await fetch("https://api64.ipify.org?format=json")).json();
